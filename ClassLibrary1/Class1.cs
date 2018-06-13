@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 
 namespace ClassLibrary1
 {
+    // THIS IS ALL NONSENSE - I fucked up and took a ref we can't use; it is garbage
     public static class Class1
     {
         public static void FromLib()

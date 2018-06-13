@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace PlatformDynamicMethod
 {
+    // THIS IS ALL NONSENSE - I fucked up and took a ref we can't use; it is garbage
     public static class DynamicMethodFactory
     {
         private static readonly Type _type;
