@@ -1,5 +1,6 @@
 ﻿using PlatformDynamicMethod;
 using System;
+using System.Reflection;
 using System.Reflection.Emit;
 
 namespace ClassLibrary1
@@ -18,6 +19,16 @@ namespace ClassLibrary1
             var method = factory.CreateDelegate();
 
             Console.WriteLine(method());
+        }
+
+        public static Type CreateType()
+        {
+            AssemblyBuilder asm = AssemblyBuilder.DefineDynamicAssembly(
+                new AssemblyName("yourasm"), AssemblyBuilderAccess.Run);
+            var m = asm.DefineDynamicModule("yourasm");
+            var t = m.DefineType("DynamicType", TypeAttributes.Class | TypeAttributes.Sealed);
+            t.DefineDefaultConstructor(MethodAttributes.Public);
+            return t.CreateTypeInfo().AsType();
         }
     }
 }
